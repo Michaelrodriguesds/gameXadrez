@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dama & Xadrez Online</title>
+  <meta name="theme-color" content="#1e1b2e">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Tela inicial: escolher jogo, criar ou entrar em sala -->
+  <section id="lobby" class="screen active">
+    <h1>Dama &amp; Xadrez</h1>
+    <p class="sub">Jogue em tempo real com um amigo, em qualquer aparelho.</p>
+
+    <label class="field">Seu nome
+      <input id="name" maxlength="20" placeholder="Ex.: Michael" autocomplete="nickname">
+    </label>
+
+    <div class="card">
+      <h2>Criar sala</h2>
+      <div class="choices">
+        <button class="gbtn" data-game="checkers">Dama</button>
+        <button class="gbtn" data-game="chess">Xadrez</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Entrar em sala</h2>
+      <div class="join-row">
+        <input id="code" maxlength="6" placeholder="Código da sala" autocapitalize="characters">
+        <button id="join">Entrar</button>
+      </div>
+    </div>
+
+    <p id="lobby-msg" class="msg"></p>
+  </section>
+
+  <!-- Tela do jogo -->
+  <section id="game" class="screen">
+    <header class="topbar">
+      <span id="title" class="title"></span>
+      <button id="room-code" class="code" title="Toque para copiar"></button>
+      <button id="leave" class="ghost">Sair</button>
+    </header>
+
+    <div class="layout">
+      <div class="board-col">
+        <div id="players" class="players"></div>
+        <div id="board"></div>
+        <div id="status" class="status"></div>
+        <div class="actions">
+          <button id="resign" class="danger" disabled>Desistir</button>
+        </div>
+      </div>
+
+      <aside class="chat">
+        <h2>Chat</h2>
+        <div id="messages"></div>
+        <form id="chat-form">
+          <input id="chat-input" maxlength="300" placeholder="Escreva uma mensagem…" autocomplete="off">
+          <button type="submit">Enviar</button>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

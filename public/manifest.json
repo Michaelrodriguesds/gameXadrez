@@ -1,0 +1,8 @@
+{
+  "name": "Dama & Xadrez Online",
+  "short_name": "Dama & Xadrez",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1b2e",
+  "theme_color": "#1e1b2e"
+}
